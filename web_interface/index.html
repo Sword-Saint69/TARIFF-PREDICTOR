@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Deficit Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>US Trade Deficit Predictor</h1>
+            <p>Enter country information to predict the trade deficit</p>
+        </header>
+        
+        <div class="form-container">
+            <form id="prediction-form">
+                <div class="form-group">
+                    <label for="country">Country Name:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="exports">US Exports (USD):</label>
+                    <input type="number" id="exports" name="exports" min="0" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="imports">US Imports (USD):</label>
+                    <input type="number" id="imports" name="imports" min="0" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tariffs">Trump Tariffs Alleged (%):</label>
+                    <input type="range" id="tariffs" name="tariffs" min="0" max="100" value="10" class="slider">
+                    <span id="tariffs-value">10%</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="response">Response Tariffs (%):</label>
+                    <input type="range" id="response" name="response" min="0" max="100" value="5" class="slider">
+                    <span id="response-value">5%</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="population">Population:</label>
+                    <input type="number" id="population" name="population" min="1" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Predict Trade Deficit</button>
+            </form>
+        </div>
+        
+        <div id="results" class="results-container hidden">
+            <h2>Prediction Results</h2>
+            <div class="result-card">
+                <h3>Predicted Trade Deficit:</h3>
+                <p id="deficit-value" class="prediction-value">$0.00</p>
+                <p id="deficit-percentage" class="percentage-value">0% of imports</p>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="prediction-chart"></canvas>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Trade Deficit Prediction Model &copy; 2023</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
